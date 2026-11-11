@@ -3,121 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دفتر أبو صالح برو - الإدارة</title>
+<title>دفتر أبو صالح برو</title>
 <style>
-*{box-sizing:border-box}body{font-family:system-ui;background:#F2F4F7;margin:0;color:#222}
-.header{background:#1A2E4B;color:#fff;padding:20px;text-align:center}
-.header h1{margin:0;font-size:28px}.header p{margin:6px 0 0;color:#CBD5E1;font-size:14px}
-.card{background:#fff;margin:14px;border-radius:16px;padding:16px;box-shadow:0 2px 10px #0001}
-.btn{background:#0E7A4B;color:#fff;border:0;padding:15px 10px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-top:10px}
-.btn.white{background:#fff;color:#222;border:1px solid #ddd}.btn.dark{background:#1A2E4B}.btn.red{background:#D32F2F}
-input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-size:16px;margin-top:6px}
-label{font-weight:700;font-size:15px;display:block;margin-top:12px}
-table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:10px;border-bottom:1px solid #eee;text-align:center;font-size:14px}
-.hidden{display:none}.badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}.ok{background:#D1FAE5}.no{background:#FEE2E2}.warn{background:#FEF3C7}
-.dash{background:linear-gradient(135deg,#0F3A3A,#0E7A4B);color:#fff;border-radius:16px;padding:16px;margin:14px}
+*{box-sizing:border-box}body{font-family:system-ui;background:#EEF2F7;margin:0;color:#1E293B}
+.top{background:linear-gradient(135deg,#0F2A4A,#0E7A4B);color:#fff;padding:26px 16px;text-align:center;border-radius:0 0 24px 24px}
+.top h1{margin:0;font-size:30px}.top p{color:#CBD5E1;margin:8px 0 0}
+.card{background:#fff;margin:14px;border-radius:20px;padding:18px;box-shadow:0 4px 20px #0001}
+.btn{background:linear-gradient(135deg,#0E7A4B,#12A35E);color:#fff;border:0;padding:15px;border-radius:14px;font-size:17px;font-weight:800;width:100%;margin-top:12px;cursor:pointer}
+.btn.dark{background:#0F2A4A}.btn.white{background:#F1F5F9;color:#222}.btn.red{background:#E11D48}
+input,select{width:100%;padding:14px;border:1.5px solid #E2E8F0;border-radius:12px;font-size:16px;margin-top:6px;background:#F8FAFC}
+label{font-weight:800;font-size:15px;display:block;margin-top:14px}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:11px;border-bottom:1px solid #F1F5F9;text-align:center;font-size:14px}
+.hidden{display:none}.badge{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:800}.ok{background:#D1FAE5;color:#065F46}.no{background:#FFE4E6;color:#9F1239}
+.stat{display:flex;gap:10px;margin-top:12px}.stat div{flex:1;background:#F8FAFC;border-radius:14px;padding:12px;text-align:center;font-weight:800}
+.stat b{font-size:20px;display:block}
+.chip{display:inline-block;background:#FEF3C7;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;margin:2px}
 </style>
 </head>
 <body>
-<div class="header"><h1>دفتر أبو صالح برو</h1><p>تأجير الخشب والسقالات والشدة المعدنية - نسخة المتجر | انت الإدارة</p></div>
+<div class="top"><h1>🧱 دفتر أبو صالح برو</h1><p>خشب • سقالات • شدة معدنية | نسخة المتجر الأصلية</p><div style="margin-top:10px"><span class="chip">✅ ليك عند الناس</span><span class="chip">📌 عليك للناس</span><span class="chip">💰 خزنة</span></div></div>
 
-<!-- تسجيل الدخول -->
 <div id="loginBox" class="card">
-<h2>دخول</h2>
-<label>رقم التليفون</label><input id="phone" placeholder="مثال: 01000000000">
-<label>الاسم</label><input id="uname" placeholder="اسمك / اسم المحل">
-<label>نوع الدخول</label>
-<select id="role"><option value="user">مستخدم - صاحب محل</option><option value="admin">الإدارة - أبو صالح</option></select>
-<div id="adminPassBox" class="hidden"><label>كلمة سر الإدارة</label><input id="adminPass" type="password" placeholder="كلمة السر"></div>
-<button class="btn" onclick="login()">دخول</button>
-<p style="font-size:13px;color:#666;line-height:1.7">أول مرة تسجل؟ اكتب اسمك ورقمك ودوس دخول، هيتعملك حساب تجربة 7 أيام مجانا. الإدارة: كلمة السر الافتراضية <b>1234</b> غيرها بعد كده.</p>
+<h2 style="margin:0">👋 أهلاً بيك</h2><p style="color:#64748B">دخول سريع للتجار والإدارة</p>
+<label>رقم التليفون</label><input id="phone" placeholder="01000000000">
+<label>الاسم / اسم المحل</label><input id="uname" placeholder="مثال: أبو صالح">
+<label>نوع الدخول</label><select id="role"><option value="user">👤 مستخدم - صاحب محل</option><option value="admin">👑 الإدارة - أبو صالح</option></select>
+<div id="adminPassBox" class="hidden"><label>كلمة سر الإدارة</label><input id="adminPass" type="password" placeholder="1234"></div>
+<button class="btn" onclick="login()">دخول للدفتر ➜</button>
+<p style="font-size:13px;color:#64748B;line-height:1.7;text-align:center">تجربة مجانية 7 أيام لأي تاجر جديد.<br>الإدارة: كلمة السر <b>1234</b></p>
 </div>
 
-<!-- لوحة الإدارة -->
 <div id="adminBox" class="hidden">
-<div class="dash"><h2 style="margin:0">👑 لوحة إدارة أبو صالح</h2><p>انت المدير هنا، كل الناس تحت إدارتك</p>
-<div style="display:flex;gap:8px;margin-top:10px"><div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:10px;text-align:center"><b id="totalUsers">0</b><br>مستخدم</div><div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:10px;text-align:center"><b id="activeUsers">0</b><br>شغال</div><div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:10px;text-align:center"><b id="blockedUsers">0</b><br>مقفول</div></div>
-</div>
-<div class="card"><h2>المستخدمين</h2><div id="usersList"></div>
-<button class="btn white" onclick="logout()">خروج من الإدارة</button></div>
+<div class="card" style="background:#0F2A4A;color:#fff"><h2 style="margin:0">👑 لوحة إدارة أبو صالح</h2><p style="color:#CBD5E1">انت المدير هنا، تتحكم في كل التجار</p><div class="stat"><div style="color:#222"><b id="totalUsers">0</b>مستخدم</div><div style="color:#222"><b id="activeUsers">0</b>شغال</div><div style="color:#222"><b id="blockedUsers">0</b>مقفول</div></div></div>
+<div class="card"><h2 style="margin:0">التجار المسجلين</h2><div id="usersList"></div><button class="btn white" onclick="logout()">خروج من الإدارة</button></div>
 </div>
 
-<!-- دفتر المستخدم -->
 <div id="userBox" class="hidden">
-<div class="card"><h2>🏠 دفترك يا <span id="helloName"></span> <span id="subBadge"></span></h2>
-<p id="subInfo" style="font-size:14px;color:#666"></p>
+<div class="card"><h2 style="margin:0">🏠 دفترك يا <span id="helloName"></span> <span id="subBadge"></span></h2><p id="subInfo" style="color:#64748B"></p>
 <label>النوع</label><select id="pType"><option>ليك عند الناس</option><option>عليك للناس</option><option>مصاريف</option><option>بيع</option><option>شراء</option><option>خزنة</option><option>ملاحظة</option></select>
 <label>الاسم / العميل / الصنف</label><input id="pName" placeholder="مثال: محمد - خشب">
 <label>المبلغ</label><input id="pAmt" type="number" placeholder="0">
 <label>ملاحظات</label><input id="pNote" placeholder="اكتب تفاصيل...">
 <button class="btn" onclick="addItem()">➕ اضافة للدفتر</button>
-<label>🔍 ابحث</label><input id="pSearch" oninput="renderUser()" placeholder="اكتب اسم...">
+<label>🔍 ابحث في دفترك</label><input id="pSearch" oninput="renderUser()" placeholder="اكتب اسم...">
 <div id="pList"></div>
-<div style="display:flex;gap:8px;margin-top:10px"><button class="btn white" style="flex:1" onclick="exportMe()">📤 تصدير نسخة احتياطية</button><button class="btn red" style="flex:1" onclick="logout()">خروج</button></div>
+<div style="display:flex;gap:8px"><button class="btn white" style="flex:1" onclick="exportMe()">📤 تصدير</button><button class="btn red" style="flex:1" onclick="logout()">خروج</button></div>
 </div>
 </div>
 
 <script>
-let users = JSON.parse(localStorage.getItem('abusalah_users')||'[]');
-let current = null;
-document.getElementById('role').onchange = e=>{document.getElementById('adminPassBox').classList.toggle('hidden', e.target.value!=='admin')};
-function saveUsers(){localStorage.setItem('abusalah_users', JSON.stringify(users));}
-function login(){
-let phone=document.getElementById('phone').value.trim();
-let name=document.getElementById('uname').value.trim()||'بدون اسم';
-let role=document.getElementById('role').value;
-if(!phone){alert('اكتب رقم التليفون');return;}
-if(role==='admin'){
-if(document.getElementById('adminPass').value!=='1234'){alert('كلمة سر الإدارة غلط');return;}
-showAdmin();return;
-}
-let u = users.find(x=>x.phone===phone);
-if(!u){u={phone,name,created:Date.now(),days:7,blocked:false};users.push(u);saveUsers();}
-else{u.name=name;saveUsers();}
-if(u.blocked){alert('حسابك مقفول، كلم الإدارة أبو صالح');return;}
-let diff = (Date.now()-u.created)/86400000;
-if(diff>u.days){alert('التجربة خلصت، كلم أبو صالح عشان يجددلك');return;}
-current=u;localStorage.setItem('abusalah_current',JSON.stringify(u));
-document.getElementById('loginBox').classList.add('hidden');
-document.getElementById('userBox').classList.remove('hidden');
-document.getElementById('helloName').textContent=name;
-let left=Math.max(0,Math.ceil(u.days-diff));
-document.getElementById('subInfo').textContent='باقي لك '+left+' يوم في التجربة / الاشتراك. للتجديد كلم أبو صالح.';
-document.getElementById('subBadge').innerHTML='<span class="badge ok">شغال</span>';
-renderUser();
-}
-function showAdmin(){
-document.getElementById('loginBox').classList.add('hidden');
-document.getElementById('adminBox').classList.remove('hidden');
-renderAdmin();
-}
-function renderAdmin(){
-document.getElementById('totalUsers').textContent=users.length;
-document.getElementById('activeUsers').textContent=users.filter(u=>!u.blocked).length;
-document.getElementById('blockedUsers').textContent=users.filter(u=>u.blocked).length;
-let h='<table><tr><th>الاسم</th><th>التليفون</th><th>الحالة</th><th>تحكم</th></tr>';
-users.forEach((u,i)=>{
-h+=`<tr><td>${u.name}</td><td>${u.phone}</td><td>${u.blocked?'<span class="badge no">مقفول</span>':'<span class="badge ok">شغال</span>'}</td><td><button onclick="toggleUser(${i})">${u.blocked?'فتح':'قفل'}</button> <button onclick="addDays(${i})">+30 يوم</button> <button onclick="delUser(${i})">مسح</button></td></tr>`;
-});
-h+='</table>'; if(!users.length)h='<p style="text-align:center">لسه مفيش مستخدمين، اول ما حد يسجل هيظهر هنا</p>';
-document.getElementById('usersList').innerHTML=h;
-}
+let users=JSON.parse(localStorage.getItem('abusalah_users')||'[]');let current=null;
+document.getElementById('role').onchange=e=>{document.getElementById('adminPassBox').classList.toggle('hidden',e.target.value!=='admin')};
+function saveUsers(){localStorage.setItem('abusalah_users',JSON.stringify(users));}
+function login(){let phone=document.getElementById('phone').value.trim();let name=document.getElementById('uname').value.trim()||'بدون اسم';let role=document.getElementById('role').value;if(!phone){alert('اكتب رقم التليفون');return;}if(role==='admin'){if(document.getElementById('adminPass').value!=='1234'){alert('كلمة السر غلط');return;}showAdmin();return;}let u=users.find(x=>x.phone===phone);if(!u){u={phone,name,created:Date.now(),days:7,blocked:false};users.push(u);saveUsers();}else{u.name=name;saveUsers();}if(u.blocked){alert('حسابك مقفول، كلم الإدارة');return;}let diff=(Date.now()-u.created)/86400000;if(diff>u.days){alert('التجربة خلصت، كلم أبو صالح');return;}current=u;document.getElementById('loginBox').classList.add('hidden');document.getElementById('userBox').classList.remove('hidden');document.getElementById('helloName').textContent=name;let left=Math.max(0,Math.ceil(u.days-diff));document.getElementById('subInfo').textContent='باقي لك '+left+' يوم في التجربة / الاشتراك. للتجديد كلم أبو صالح.';document.getElementById('subBadge').innerHTML='<span class="badge ok">شغال</span>';renderUser();}
+function showAdmin(){document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminBox').classList.remove('hidden');renderAdmin();}
+function renderAdmin(){document.getElementById('totalUsers').textContent=users.length;document.getElementById('activeUsers').textContent=users.filter(u=>!u.blocked).length;document.getElementById('blockedUsers').textContent=users.filter(u=>u.blocked).length;let h='<table><tr><th>الاسم</th><th>التليفون</th><th>الحالة</th><th>تحكم</th></tr>';users.forEach((u,i)=>{h+=`<tr><td>${u.name}</td><td>${u.phone}</td><td>${u.blocked?'<span class="badge no">مقفول</span>':'<span class="badge ok">شغال</span>'}</td><td><button onclick="toggleUser(${i})">${u.blocked?'فتح':'قفل'}</button> <button onclick="addDays(${i})">+30 يوم</button> <button onclick="delUser(${i})">مسح</button></td></tr>`;});h+='</table>';if(!users.length)h='<p style="text-align:center">لسه مفيش تجار، اول ما حد يسجل هيظهر هنا</p>';document.getElementById('usersList').innerHTML=h;}
 function toggleUser(i){users[i].blocked=!users[i].blocked;saveUsers();renderAdmin();}
 function addDays(i){users[i].days+=30;saveUsers();renderAdmin();alert('زودت 30 يوم لـ '+users[i].name);}
-function delUser(i){if(confirm('تمسح المستخدم ده؟')){users.splice(i,1);saveUsers();renderAdmin();}}
+function delUser(i){if(confirm('تمسح التاجر ده؟')){users.splice(i,1);saveUsers();renderAdmin();}}
 function getMyKey(){return 'abusalah_data_'+current.phone;}
-function addItem(){
-let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');
-data.unshift({t:document.getElementById('pType').value,n:document.getElementById('pName').value||'بدون اسم',a:Number(document.getElementById('pAmt').value||0),d:new Date().toLocaleDateString('ar-EG'),nt:document.getElementById('pNote').value});
-localStorage.setItem(getMyKey(),JSON.stringify(data));document.getElementById('pName').value='';document.getElementById('pAmt').value='';document.getElementById('pNote').value='';renderUser();
-}
-function renderUser(){
-if(!current)return;let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');
-let s=(document.getElementById('pSearch').value||'');let f=data.filter(x=>(x.n+x.nt+x.t).includes(s));
-let h='<table><tr><th>النوع</th><th>الاسم</th><th>المبلغ</th><th>التاريخ</th></tr>';
-f.forEach(x=>{h+=`<tr><td>${x.t}</td><td>${x.n}</td><td>${x.a}</td><td>${x.d}</td></tr>`});h+='</table>';if(!f.length)h='<p style="text-align:center">الدفتر فاضي</p>';
-document.getElementById('pList').innerHTML=h;
-}
+function addItem(){let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');data.unshift({t:document.getElementById('pType').value,n:document.getElementById('pName').value||'بدون اسم',a:Number(document.getElementById('pAmt').value||0),d:new Date().toLocaleDateString('ar-EG'),nt:document.getElementById('pNote').value});localStorage.setItem(getMyKey(),JSON.stringify(data));document.getElementById('pName').value='';document.getElementById('pAmt').value='';document.getElementById('pNote').value='';renderUser();}
+function renderUser(){if(!current)return;let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');let s=document.getElementById('pSearch').value||'';let f=data.filter(x=>(x.n+x.nt+x.t).includes(s));let h='<table><tr><th>النوع</th><th>الاسم</th><th>المبلغ</th><th>التاريخ</th></tr>';f.forEach(x=>{h+=`<tr><td>${x.t}</td><td>${x.n}</td><td>${x.a}</td><td>${x.d}</td></tr>`});h+='</table>';if(!f.length)h='<p style="text-align:center">الدفتر فاضي</p>';document.getElementById('pList').innerHTML=h;}
 function exportMe(){let data=localStorage.getItem(getMyKey())||'[]';let blob=new Blob([data],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='daftar-'+current.phone+'.json';a.click();}
 function logout(){location.reload();}
 </script>
