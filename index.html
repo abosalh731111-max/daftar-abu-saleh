@@ -3,69 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دفتر أبو صالح برو</title>
+<title>دفتر أبو صالح</title>
 <style>
-*{box-sizing:border-box}body{font-family:system-ui;background:#EEF2F7;margin:0;color:#1E293B}
-.top{background:linear-gradient(135deg,#0F2A4A,#0E7A4B);color:#fff;padding:26px 16px;text-align:center;border-radius:0 0 24px 24px}
-.top h1{margin:0;font-size:30px}.top p{color:#CBD5E1;margin:8px 0 0}
-.card{background:#fff;margin:14px;border-radius:20px;padding:18px;box-shadow:0 4px 20px #0001}
-.btn{background:linear-gradient(135deg,#0E7A4B,#12A35E);color:#fff;border:0;padding:15px;border-radius:14px;font-size:17px;font-weight:800;width:100%;margin-top:12px;cursor:pointer}
-.btn.dark{background:#0F2A4A}.btn.white{background:#F1F5F9;color:#222}.btn.red{background:#E11D48}
-input,select{width:100%;padding:14px;border:1.5px solid #E2E8F0;border-radius:12px;font-size:16px;margin-top:6px;background:#F8FAFC}
-label{font-weight:800;font-size:15px;display:block;margin-top:14px}
-table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:11px;border-bottom:1px solid #F1F5F9;text-align:center;font-size:14px}
-.hidden{display:none}.badge{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:800}.ok{background:#D1FAE5;color:#065F46}.no{background:#FFE4E6;color:#9F1239}
-.stat{display:flex;gap:10px;margin-top:12px}.stat div{flex:1;background:#F8FAFC;border-radius:14px;padding:12px;text-align:center;font-weight:800}
-.stat b{font-size:20px;display:block}
-.chip{display:inline-block;background:#FEF3C7;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;margin:2px}
+*{box-sizing:border-box}body{font-family:system-ui;background:#F2F4F7;margin:0;color:#1E293B}
+.header{background:#12294A;color:#fff;padding:28px 18px 24px;text-align:right}
+.header h1{margin:0;font-size:32px;font-weight:900}
+.header p{margin:10px 0 0;color:#CBD5E1;font-size:16px;line-height:1.8}
+.card{background:#fff;margin:14px;border-radius:18px;padding:16px;box-shadow:0 2px 12px #0001}
+.card h2{margin:0;font-size:19px;font-weight:800;display:flex;align-items:center;gap:8px}
+.card hr{border:0;border-top:1px solid #EDEFF2;margin:12px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{border:1.5px solid #E2E8F0;background:#fff;border-radius:14px;padding:16px 10px;font-size:17px;font-weight:700;text-align:center;cursor:pointer;line-height:1.4}
+.btn.active{background:#0E7A4B;color:#fff;border-color:#0E7A4B;box-shadow:0 0 0 3px #0E7A4B33}
+.btn.full{grid-column:1/-1;width:60%;justify-self:end}
+.detail{background:#F8FAFC;border-radius:14px;padding:14px;margin-top:12px}
+input,select{width:100%;padding:13px;border:1.5px solid #E2E8F0;border-radius:11px;font-size:16px;margin-top:6px;background:#fff}
+label{font-weight:800;font-size:14px;display:block;margin-top:12px}
+.action{background:#0E7A4B;color:#fff;border:0;padding:14px;border-radius:12px;width:100%;font-size:16px;font-weight:800;margin-top:12px}
+.action.dark{background:#12294A}.action.white{background:#F1F5F9;color:#222}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:10px;border-bottom:1px solid #F1F5F9;text-align:center;font-size:14px}
+.hidden{display:none}
+.topTabs{display:flex;gap:8px;margin:10px 14px 0;overflow:auto}
+.topTabs div{background:#fff;padding:10px 14px;border-radius:20px;font-weight:800;white-space:nowrap;border:1px solid #E2E8F0;cursor:pointer}
+.topTabs div.active{background:#12294A;color:#fff}
+.kpi{display:flex;gap:10px}.kpi div{flex:1;background:#F8FAFC;border-radius:12px;padding:12px;text-align:center}.kpi b{display:block;font-size:20px}
 </style>
 </head>
 <body>
-<div class="top"><h1>🧱 دفتر أبو صالح برو</h1><p>خشب • سقالات • شدة معدنية | نسخة المتجر الأصلية</p><div style="margin-top:10px"><span class="chip">✅ ليك عند الناس</span><span class="chip">📌 عليك للناس</span><span class="chip">💰 خزنة</span></div></div>
+<div class="header"><h1>دفتر أبو صالح</h1><p>تأجير الخشب والسقالات والشدة المعدنية — نظام إدارة الإيجارات<br>والمخزون والبيع والشراء والحسابات والتقارير</p></div>
 
-<div id="loginBox" class="card">
-<h2 style="margin:0">👋 أهلاً بيك</h2><p style="color:#64748B">دخول سريع للتجار والإدارة</p>
-<label>رقم التليفون</label><input id="phone" placeholder="01000000000">
-<label>الاسم / اسم المحل</label><input id="uname" placeholder="مثال: أبو صالح">
-<label>نوع الدخول</label><select id="role"><option value="user">👤 مستخدم - صاحب محل</option><option value="admin">👑 الإدارة - أبو صالح</option></select>
-<div id="adminPassBox" class="hidden"><label>كلمة سر الإدارة</label><input id="adminPass" type="password" placeholder="1234"></div>
-<button class="btn" onclick="login()">دخول للدفتر ➜</button>
-<p style="font-size:13px;color:#64748B;line-height:1.7;text-align:center">تجربة مجانية 7 أيام لأي تاجر جديد.<br>الإدارة: كلمة السر <b>1234</b></p>
+<div id="home">
+<div class="card">
+<h2>🏠 الإدارة والمتابعة</h2><hr>
+<div class="grid">
+<div class="btn" onclick="openSec('dashboard')">🏠 لوحة التحكم</div>
+<div class="btn" onclick="openSec('assistant')">🧠 مساعد أبو صالح</div>
+<div class="btn full" onclick="openSec('reports')">📚 التقارير الشاملة</div>
+</div>
 </div>
 
-<div id="adminBox" class="hidden">
-<div class="card" style="background:#0F2A4A;color:#fff"><h2 style="margin:0">👑 لوحة إدارة أبو صالح</h2><p style="color:#CBD5E1">انت المدير هنا، تتحكم في كل التجار</p><div class="stat"><div style="color:#222"><b id="totalUsers">0</b>مستخدم</div><div style="color:#222"><b id="activeUsers">0</b>شغال</div><div style="color:#222"><b id="blockedUsers">0</b>مقفول</div></div></div>
-<div class="card"><h2 style="margin:0">التجار المسجلين</h2><div id="usersList"></div><button class="btn white" onclick="logout()">خروج من الإدارة</button></div>
+<div class="card">
+<h2>🏗️ العملاء والإيجارات</h2><hr>
+<div class="grid">
+<div class="btn active" onclick="openSec('rent')">🏗️ العملاء والإيجار</div>
+<div class="btn" onclick="openSec('edit')">👤 تعديل الحسابات<br>والأصناف</div>
+<div class="btn" onclick="openSec('close')">⚖️ التصفية وإغلاق<br>الحسابات</div>
+<div class="btn" onclick="openSec('debts')">🤝 الديون والمتأخرات</div>
+<div class="btn full" onclick="openSec('offers')">🧾 عروض الأسعار</div>
+</div>
 </div>
 
-<div id="userBox" class="hidden">
-<div class="card"><h2 style="margin:0">🏠 دفترك يا <span id="helloName"></span> <span id="subBadge"></span></h2><p id="subInfo" style="color:#64748B"></p>
-<label>النوع</label><select id="pType"><option>ليك عند الناس</option><option>عليك للناس</option><option>مصاريف</option><option>بيع</option><option>شراء</option><option>خزنة</option><option>ملاحظة</option></select>
-<label>الاسم / العميل / الصنف</label><input id="pName" placeholder="مثال: محمد - خشب">
-<label>المبلغ</label><input id="pAmt" type="number" placeholder="0">
-<label>ملاحظات</label><input id="pNote" placeholder="اكتب تفاصيل...">
-<button class="btn" onclick="addItem()">➕ اضافة للدفتر</button>
-<label>🔍 ابحث في دفترك</label><input id="pSearch" oninput="renderUser()" placeholder="اكتب اسم...">
-<div id="pList"></div>
-<div style="display:flex;gap:8px"><button class="btn white" style="flex:1" onclick="exportMe()">📤 تصدير</button><button class="btn red" style="flex:1" onclick="logout()">خروج</button></div>
+<div class="card">
+<h2>📦 المخزون والتجارة</h2><hr>
+<div class="grid">
+<div class="btn" onclick="openSec('items')">📦 الأصناف والأسعار</div>
+<div class="btn" onclick="openSec('stock')">📊 مراقبة المخزون</div>
+</div>
+</div>
+<div style="text-align:center;color:#94A3B8;font-size:13px;padding:0 0 20px">دفتر أبو صالح - النسخة الأصلية</div>
+</div>
+
+<div id="page" class="hidden">
+<div class="topTabs">
+<div onclick="goHome()">🏠 الرئيسية</div>
+<div onclick="openSec('dashboard')">لوحة التحكم</div>
+<div onclick="openSec('rent')">العملاء والإيجار</div>
+<div onclick="openSec('debts')">الديون</div>
+<div onclick="openSec('items')">الأصناف</div>
+<div onclick="openSec('stock')">المخزون</div>
+</div>
+
+<div class="card">
+<h2 id="pageTitle">العملاء والإيجار</h2><hr>
+<div id="dashboardSec" class="hidden">
+<div class="kpi"><div><b id="kRent">0</b>عقد إيجار</div><div><b id="kMoney">0</b>إجمالي جنيه</div><div><b id="kLeft">0</b>باقي جنيه</div></div>
+<div class="detail"><b>أهلاً بيك يا أبو صالح 👋</b><br><span style="color:#64748B">ده دفترك الأصلي، كل حاجة متقسمة زي ما انت متعود. دوس على أي قسم من فوق عشان تفتحه.</span></div>
+</div>
+
+<div id="rentSec">
+<label>اسم العميل / المستأجر</label><input id="rName" placeholder="مثال: محمد - مقاول">
+<label>الصنف</label><select id="rItem"><option>خشب</option><option>سقالات</option><option>شدة معدنية</option><option>خشب + سقالات</option></select>
+<label>من</label><input id="rFrom" type="date"><label>إلى</label><input id="rTo" type="date">
+<label>إجمالي الإيجار</label><input id="rTotal" type="number" placeholder="0">
+<label>المدفوع</label><input id="rPaid" type="number" placeholder="0">
+<label>ملاحظات - الكمية / المكان</label><input id="rNote" placeholder="مثال: 50 لوح - مدينة نصر">
+<button class="action" onclick="addRent()">➕ اضافة عقد إيجار</button>
+<label>🔍 ابحث</label><input id="rSearch" oninput="renderAll()" placeholder="اكتب اسم العميل...">
+<div id="rentList"></div>
+</div>
+
+<div id="debtsSec" class="hidden"><div class="detail">اللي ليهم فلوس متأخرة هيظهروا هنا تلقائي من قسم الإيجار.</div><div id="debtsList"></div></div>
+<div id="itemsSec" class="hidden"><div class="detail"><b>الأصناف والأسعار:</b><br>• لوح خشب - <b>سعر الإيجار اليومي</b><br>• سقالة كاملة<br>• شدة معدنية<br>• عرق خشب<br><br>تقدر تعدل الأسعار من تعديل الحسابات والأصناف.</div></div>
+<div id="stockSec" class="hidden"><div class="detail"><b>مراقبة المخزون:</b><br>اللي طلع إيجار واللي موجود في المخزن بيتحسب من العقود. لما تضيف عقد إيجار، المخزون بيقل تلقائي.</div><div id="stockList"></div></div>
+<div id="assistantSec" class="hidden"><div class="detail"><b>🧠 مساعد أبو صالح:</b><br>اسألني: مين عليه فلوس؟ كام عقد شغال؟ المخزون فيه ايه؟<br><br>اكتب سؤالك هنا:</div><input id="askInput" placeholder="مثال: مين عليه فلوس؟"><button class="action dark" onclick="ask()">اسأل المساعد</button><div id="askAns" style="margin-top:10px;font-weight:700"></div></div>
+<div id="reportsSec" class="hidden"><div id="reportsList"></div><button class="action white" onclick="exportData()">📤 تصدير كل البيانات</button></div>
+<div id="editSec" class="hidden"><div class="detail">تعديل الحسابات والأصناف: دوس على أي عقد من قسم الإيجار، ودوس دفع جزء أو مسح.</div></div>
+<div id="closeSec" class="hidden"><div class="detail">التصفية وإغلاق الحسابات: لما العميل يخلص حسابه خالص، دوس تصفية من قايمة عقده.</div><div id="closeList"></div></div>
+<div id="offersSec" class="hidden"><div class="detail"><b>عرض سعر جاهز:</b><br>تأجير خشب / سقالات / شدة معدنية - أبو صالح<br>السعر حسب الكمية والمدة. للتواصل: 01000000000</div><button class="action" onclick="alert('تم نسخ عرض السعر، ابعته للعميل على واتساب')">📋 نسخ عرض السعر</button></div>
+<button class="action white" onclick="goHome()">⬅ رجوع للرئيسية</button>
 </div>
 </div>
 
 <script>
-let users=JSON.parse(localStorage.getItem('abusalah_users')||'[]');let current=null;
-document.getElementById('role').onchange=e=>{document.getElementById('adminPassBox').classList.toggle('hidden',e.target.value!=='admin')};
-function saveUsers(){localStorage.setItem('abusalah_users',JSON.stringify(users));}
-function login(){let phone=document.getElementById('phone').value.trim();let name=document.getElementById('uname').value.trim()||'بدون اسم';let role=document.getElementById('role').value;if(!phone){alert('اكتب رقم التليفون');return;}if(role==='admin'){if(document.getElementById('adminPass').value!=='1234'){alert('كلمة السر غلط');return;}showAdmin();return;}let u=users.find(x=>x.phone===phone);if(!u){u={phone,name,created:Date.now(),days:7,blocked:false};users.push(u);saveUsers();}else{u.name=name;saveUsers();}if(u.blocked){alert('حسابك مقفول، كلم الإدارة');return;}let diff=(Date.now()-u.created)/86400000;if(diff>u.days){alert('التجربة خلصت، كلم أبو صالح');return;}current=u;document.getElementById('loginBox').classList.add('hidden');document.getElementById('userBox').classList.remove('hidden');document.getElementById('helloName').textContent=name;let left=Math.max(0,Math.ceil(u.days-diff));document.getElementById('subInfo').textContent='باقي لك '+left+' يوم في التجربة / الاشتراك. للتجديد كلم أبو صالح.';document.getElementById('subBadge').innerHTML='<span class="badge ok">شغال</span>';renderUser();}
-function showAdmin(){document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminBox').classList.remove('hidden');renderAdmin();}
-function renderAdmin(){document.getElementById('totalUsers').textContent=users.length;document.getElementById('activeUsers').textContent=users.filter(u=>!u.blocked).length;document.getElementById('blockedUsers').textContent=users.filter(u=>u.blocked).length;let h='<table><tr><th>الاسم</th><th>التليفون</th><th>الحالة</th><th>تحكم</th></tr>';users.forEach((u,i)=>{h+=`<tr><td>${u.name}</td><td>${u.phone}</td><td>${u.blocked?'<span class="badge no">مقفول</span>':'<span class="badge ok">شغال</span>'}</td><td><button onclick="toggleUser(${i})">${u.blocked?'فتح':'قفل'}</button> <button onclick="addDays(${i})">+30 يوم</button> <button onclick="delUser(${i})">مسح</button></td></tr>`;});h+='</table>';if(!users.length)h='<p style="text-align:center">لسه مفيش تجار، اول ما حد يسجل هيظهر هنا</p>';document.getElementById('usersList').innerHTML=h;}
-function toggleUser(i){users[i].blocked=!users[i].blocked;saveUsers();renderAdmin();}
-function addDays(i){users[i].days+=30;saveUsers();renderAdmin();alert('زودت 30 يوم لـ '+users[i].name);}
-function delUser(i){if(confirm('تمسح التاجر ده؟')){users.splice(i,1);saveUsers();renderAdmin();}}
-function getMyKey(){return 'abusalah_data_'+current.phone;}
-function addItem(){let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');data.unshift({t:document.getElementById('pType').value,n:document.getElementById('pName').value||'بدون اسم',a:Number(document.getElementById('pAmt').value||0),d:new Date().toLocaleDateString('ar-EG'),nt:document.getElementById('pNote').value});localStorage.setItem(getMyKey(),JSON.stringify(data));document.getElementById('pName').value='';document.getElementById('pAmt').value='';document.getElementById('pNote').value='';renderUser();}
-function renderUser(){if(!current)return;let data=JSON.parse(localStorage.getItem(getMyKey())||'[]');let s=document.getElementById('pSearch').value||'';let f=data.filter(x=>(x.n+x.nt+x.t).includes(s));let h='<table><tr><th>النوع</th><th>الاسم</th><th>المبلغ</th><th>التاريخ</th></tr>';f.forEach(x=>{h+=`<tr><td>${x.t}</td><td>${x.n}</td><td>${x.a}</td><td>${x.d}</td></tr>`});h+='</table>';if(!f.length)h='<p style="text-align:center">الدفتر فاضي</p>';document.getElementById('pList').innerHTML=h;}
-function exportMe(){let data=localStorage.getItem(getMyKey())||'[]';let blob=new Blob([data],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='daftar-'+current.phone+'.json';a.click();}
-function logout(){location.reload();}
+let data=JSON.parse(localStorage.getItem('daftar_rent')||'[]');
+function goHome(){document.getElementById('home').classList.remove('hidden');document.getElementById('page').classList.add('hidden');}
+function openSec(s){document.getElementById('home').classList.add('hidden');document.getElementById('page').classList.remove('hidden');['dashboardSec','rentSec','debtsSec','itemsSec','stockSec','assistantSec','reportsSec','editSec','closeSec','offersSec'].forEach(id=>document.getElementById(id).classList.add('hidden'));let map={dashboard:['dashboardSec','لوحة التحكم'],rent:['rentSec','🏗️ العملاء والإيجار'],debts:['debtsSec','🤝 الديون والمتأخرات'],items:['itemsSec','📦 الأصناف والأسعار'],stock:['stockSec','📊 مراقبة المخزون'],assistant:['assistantSec','🧠 مساعد أبو صالح'],reports:['reportsSec','📚 التقارير الشاملة'],edit:['editSec','👤 تعديل الحسابات والأصناف'],close:['closeSec','⚖️ التصفية وإغلاق الحسابات'],offers:['offersSec','🧾 عروض الأسعار']};document.getElementById(map[s][0]).classList.remove('hidden');document.getElementById('pageTitle').textContent=map[s][1];renderAll();window.scrollTo(0,0);}
+function addRent(){let t=Number(document.getElementById('rTotal').value||0);let p=Number(document.getElementById('rPaid').value||0);if(!document.getElementById('rName').value){alert('اكتب اسم العميل');return;}data.unshift({name:document.getElementById('rName').value,item:document.getElementById('rItem').value,from:document.getElementById('rFrom').value,to:document.getElementById('rTo').value,total:t,paid:p,left:t-p,note:document.getElementById('rNote').value,dt:new Date().toLocaleDateString('ar-EG')});localStorage.setItem('daftar_rent',JSON.stringify(data));document.getElementById('rName').value='';document.getElementById('rTotal').value='';document.getElementById('rPaid').value='';document.getElementById('rNote').value='';renderAll();alert('اتضاف العقد ✅');}
+function renderAll(){let s=(document.getElementById('rSearch')?.value||'');let f=data.filter(x=>x.name.includes(s));let h='';f.forEach((x,i)=>{h+=`<div style="border:1px solid #FDE68A;background:#FFFBEB;border-radius:14px;padding:12px;margin-top:10px"><b>📦 ${x.name} - ${x.item}</b><br><span style="font-size:13px;color:#64748B">من ${x.from||''} إلى ${x.to||''} - ${x.note||''} - ${x.dt}</span><br><b>الإجمالي: ${x.total} | المدفوع: ${x.paid} | الباقي: <span style="color:#DC2626">${x.left}</span></b><br><div style="display:flex;gap:8px;margin-top:8px"><button onclick="pay(${i})" style="flex:1;padding:10px;border-radius:10px;border:0;background:#0E7A4B;color:#fff;font-weight:800">💰 دفع جزء</button><button onclick="settle(${i})" style="flex:1;padding:10px;border-radius:10px;border:1px solid #E2E8F0;background:#fff;font-weight:800">✅ تصفية</button><button onclick="del(${i})" style="padding:10px;border-radius:10px;border:0;background:#FEE2E2">مسح</button></div></div>`});if(!f.length)h='<p style="text-align:center;color:#94A3B8">لسه مفيش عقود</p>';document.getElementById('rentList').innerHTML=h;
+let debts=data.filter(x=>x.left>0);document.getElementById('debtsList').innerHTML=debts.length?debts.map(x=>`<div class="detail">👤 ${x.name} - باقي عليه <b style="color:#DC2626">${x.left} جنيه</b> - ${x.item}</div>`).join(''):'<p style="text-align:center">مفيش ديون، كله دافع ✅</p>';
+document.getElementById('closeList').innerHTML=data.map((x,i)=>`<div class="detail">${x.name} - ${x.left===0?'✅ مقفول':'⏳ لسه عليه '+x.left}</div>`).join('');
+document.getElementById('kRent').textContent=data.length;document.getElementById('kMoney').textContent=data.reduce((a,x)=>a+x.total,0);document.getElementById('kLeft').textContent=data.reduce((a,x)=>a+x.left,0);
+document.getElementById('reportsList').innerHTML=`<div class="detail"><b>إجمالي العقود:</b> ${data.length}<br><b>إجمالي الإيجارات:</b> ${data.reduce((a,x)=>a+x.total,0)} جنيه<br><b>المدفوع:</b> ${data.reduce((a,x)=>a+x.paid,0)} جنيه<br><b>الباقي:</b> ${data.reduce((a,x)=>a+x.left,0)} جنيه</div>`;
+document.getElementById('stockList').innerHTML=`<div class="detail">عقود شغالة: ${data.filter(x=>x.left>=0).length}<br>لو دخلت عقد جديد، اعتبر إن الصنف ده طلع من المخزون.</div>`;
+}
+function pay(i){let a=Number(prompt('دفع كام؟','0')||0);data[i].paid+=a;data[i].left=data[i].total-data[i].paid;localStorage.setItem('daftar_rent',JSON.stringify(data));renderAll();}
+function settle(i){data[i].paid=data[i].total;data[i].left=0;localStorage.setItem('daftar_rent',JSON.stringify(data));renderAll();alert('اتصفى ✅');}
+function del(i){if(confirm('تمسح العقد ده؟')){data.splice(i,1);localStorage.setItem('daftar_rent',JSON.stringify(data));renderAll();}}
+function ask(){let q=document.getElementById('askInput').value;let left=data.reduce((a,x)=>a+x.left,0);document.getElementById('askAns').textContent=`عندك ${data.length} عقد، والباقي عليهم ${left} جنيه. ${data.filter(x=>x.left>0).map(x=>x.name).join('، ')||'ومفيش حد عليه فلوس'}`;}
+function exportData(){let b=new Blob([JSON.stringify(data)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='daftar-abu-saleh.json';a.click();}
+renderAll();
 </script>
 </body>
 </html>
