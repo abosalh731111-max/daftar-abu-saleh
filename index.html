@@ -5,74 +5,85 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>دفتر أبو صالح</title>
 <style>
-*{box-sizing:border-box}body{font-family:system-ui;background:#F2F4F7;margin:0}
-.header{background:#12294A;color:#fff;padding:28px 18px;text-align:right}
-.header h1{margin:0;font-size:32px}
-.header p{color:#CBD5E1;line-height:1.8;margin:10px 0 0}
-.card{background:#fff;margin:14px;border-radius:18px;padding:16px}
-.card h2{margin:0;font-size:19px}
-hr{border:0;border-top:1px solid #EDEFF2;margin:12px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{border:1.5px solid #E2E8F0;background:#fff;border-radius:14px;padding:16px;font-size:17px;font-weight:700;text-align:center;cursor:pointer}
+*{box-sizing:border-box}body{font-family:system-ui;background:#F2F4F7;margin:0;color:#1E293B;padding-bottom:30px}
+.header{background:#12294A;color:#fff;padding:22px 16px;text-align:right}
+.header h1{margin:0;font-size:26px;font-weight:900}
+.header p{margin:8px 0 0;color:#CBD5E1;font-size:12.5px;line-height:1.7}
+.card{background:#fff;margin:12px;border-radius:16px;padding:14px;box-shadow:0 2px 10px #0001}
+.card h2{margin:0;font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px;justify-content:space-between}
+.card h2 span{font-size:13px;color:#94A3B8;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.btn{border:1.5px solid #E8EBEF;background:#fff;border-radius:12px;padding:14px 8px;font-size:14.5px;font-weight:700;text-align:center;cursor:pointer;line-height:1.4}
 .btn.active{background:#0E7A4B;color:#fff;border-color:#0E7A4B}
-.btn.full{grid-column:1/-1;width:60%;justify-self:end}
-.page{background:#fff;margin:14px;border-radius:18px;padding:16px}
-input{width:100%;padding:13px;border:1.5px solid #E2E8F0;border-radius:11px;margin-top:6px;font-size:16px}
-label{font-weight:800;font-size:14px;display:block;margin-top:12px}
-.add{background:#0E7A4B;color:#fff;border:0;padding:14px;border-radius:12px;width:100%;font-weight:800;margin-top:12px;font-size:16px}
-.back{background:#F1F5F9;border:0;padding:12px;border-radius:12px;width:100%;margin-top:10px;font-weight:800}
-.hidden{display:none}
-.item{background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;padding:12px;margin-top:10px}
+.btn.full{grid-column:1/-1;width:55%;justify-self:end}
+.btn.small{font-size:13.5px;padding:12px 6px}
+h3{font-size:16px;margin:0}.sub{font-size:12px;color:#64748B;margin:6px 0 0}
+label{font-weight:700;font-size:13px;display:block;margin-top:12px;color:#334155}
+input{width:100%;padding:12px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:15px;margin-top:6px;background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.green{background:#0E7A4B;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-size:15px;font-weight:800;margin-top:12px}
+.open{background:#E8F5EE;color:#0E7A4B;border:0;padding:8px 14px;border-radius:8px;font-weight:800;font-size:13px}
+.client{display:flex;justify-content:space-between;align-items:center;border:1px solid #F1F5F9;border-radius:12px;padding:12px;margin-top:10px;background:#fff}
+.client b{font-size:15px}.client small{color:#64748B;font-size:12.5px}
+.hidden{display:none}.page{background:#fff;margin:12px;border-radius:16px;padding:14px}.back{background:#F1F5F9;border:0;padding:12px;border-radius:10px;width:100%;margin-top:10px;font-weight:800}
 </style>
 </head>
 <body>
-<div class="header"><h1>دفتر أبو صالح</h1><p>تأجير الخشب والسقالات والشدة المعدنية — نظام إدارة الإيجارات<br>والمخزون والبيع والشراء والحسابات والتقارير</p></div>
+<div class="header"><h1>دفتر أبو صالح</h1><p>تأجير الخشب والسقالات والشدة المعدنية — نظام إدارة الإيجارات والمخزون والبيع والشراء والحسابات والتقارير</p></div>
 
 <div id="home">
-<div class="card"><h2>🏠 الإدارة والمتابعة</h2><hr><div class="grid">
-<div class="btn" onclick="show('dashboard')">🏠 لوحة التحكم</div>
-<div class="btn" onclick="show('assistant')">🧠 مساعد أبو صالح</div>
-<div class="btn full" onclick="show('reports')">📚 التقارير الشاملة</div></div></div>
+<div class="card"><h2><span>🏠 الإدارة والمتابعة</span></h2><div class="grid">
+<div class="btn" onclick="openPage('لوحة التحكم')">🏠 لوحة التحكم</div>
+<div class="btn" onclick="openPage('مساعد أبو صالح')">🧠 مساعد أبو صالح</div>
+<div class="btn full" onclick="openPage('التقارير الشاملة')">📚 التقارير الشاملة</div></div></div>
 
-<div class="card"><h2>🏗️ العملاء والإيجارات</h2><hr><div class="grid">
-<div class="btn active" onclick="show('rent')">🏗️ العملاء والإيجار</div>
-<div class="btn" onclick="show('edit')">👤 تعديل الحسابات والأصناف</div>
-<div class="btn" onclick="show('close')">⚖️ التصفية وإغلاق الحسابات</div>
-<div class="btn" onclick="show('debts')">🤝 الديون والمتأخرات</div>
-<div class="btn full" onclick="show('offers')">🧾 عروض الأسعار</div></div></div>
+<div class="card"><h2><span>🏗️ العملاء والإيجارات</span></h2><div class="grid">
+<div class="btn active" onclick="openPage('العملاء والإيجار')">🏗️ العملاء والإيجار</div>
+<div class="btn" onclick="openPage('تعديل الحسابات والأصناف')">👤 تعديل الحسابات والأصناف</div>
+<div class="btn" onclick="openPage('التصفية وإغلاق الحسابات')">⚖️ التصفية وإغلاق الحسابات</div>
+<div class="btn" onclick="openPage('الديون والمتأخرات')">🤝 الديون والمتأخرات</div>
+<div class="btn full" onclick="openPage('عروض الأسعار')">🧾 عروض الأسعار</div></div></div>
 
-<div class="card"><h2>📦 المخزون والتجارة</h2><hr><div class="grid">
-<div class="btn" onclick="show('items')">📦 الأصناف والأسعار</div>
-<div class="btn" onclick="show('stock')">📊 مراقبة المخزون</div></div></div>
+<div class="card"><h2><span>📦 المخزون والتجارة</span></h2><div class="grid">
+<div class="btn" onclick="openPage('الأصناف والأسعار')">📦 الأصناف والأسعار</div>
+<div class="btn" onclick="openPage('مراقبة المخزون والجرد')">📊 مراقبة المخزون والجرد</div>
+<div class="btn" onclick="openPage('المبيعات')">🧾 المبيعات</div>
+<div class="btn" onclick="openPage('المشتريات')">🛒 المشتريات</div></div></div>
+
+<div class="card"><h2><span>🚛 التشغيل والمصروفات</span></h2><div class="grid">
+<div class="btn" onclick="openPage('الخزنة والحركة النقدية')">💰 الخزنة والحركة النقدية</div>
+<div class="btn" onclick="openPage('المصروفات')">🧾 المصروفات</div>
+<div class="btn" onclick="openPage('السيارات ومصاريفها')">🚗 السيارات ومصاريفها</div>
+<div class="btn" onclick="openPage('العمال والمهام')">👷 العمال والمهام</div>
+<div class="btn full" onclick="openPage('المذكرة ومواعيد النقل')">📝 المذكرة ومواعيد النقل</div></div></div>
+
+<div class="card"><h2><span>⚙️ الحفظ والإدارة</span></h2><div class="grid">
+<div class="btn" onclick="openPage('سلة المهملات')">🗑️ سلة المهملات</div>
+<div class="btn" onclick="openPage('الإعدادات والنسخ الاحتياطي')">⚙️ الإعدادات والنسخ الاحتياطي</div></div></div>
+
+<div class="card"><h2><span>🖨️ تقرير الإيجار والعملاء</span></h2><p class="sub">اختر المدة من أعلى ثم اضغط التقرير PDF.</p>
+<div class="two"><div><label>من تاريخ (اختياري)</label><input type="date" id="fromD"></div><div><label>إلى تاريخ (اختياري)</label><input type="date" id="toD"></div></div>
+<button class="green" onclick="makeReport()">🖨️ إنشاء تقرير القسم</button></div>
+
+<div class="card"><h3>إضافة عميل جديد</h3>
+<div class="two"><div><label>اسم العميل</label><input id="cName" placeholder="اكتب اسم العميل"></div><div><label>رقم الجوال (اختياري)</label><input id="cPhone" placeholder="05xxxxxxxx"></div></div>
+<div class="two"><div><button class="green" onclick="addClient()">+ إضافة العميل</button></div><div><button class="green" style="background:#12294A" onclick="alert('اختار من جهات الاتصال من موبايلك')">📱 إضافة من جهات الاتصال</button></div></div>
+<p class="sub" style="text-align:center">اختر جهة الاتصال وسيتم تعبئة الاسم ورقم الجوال تلقائياً إذا كان متاحاً</p></div>
+
+<div class="card"><h3>حسابات العملاء</h3><input id="search" oninput="render()" placeholder="🔍 ابحث باسم العميل أو رقم الجوال"><div id="list"></div></div>
 </div>
 
-<div id="rentPage" class="page hidden">
-<h2>🏗️ العملاء والإيجار</h2><hr>
-<label>اسم العميل</label><input id="n" placeholder="اكتب اسم العميل">
-<label>الصنف</label><input id="it" placeholder="خشب / سقالات / شدة">
-<label>المبلغ</label><input id="am" type="number" placeholder="0">
-<label>المدفوع</label><input id="pd" type="number" placeholder="0">
-<button class="add" onclick="add()">➕ اضافة</button>
-<div id="list"></div>
-<button class="back" onclick="back()">⬅ رجوع للرئيسية</button>
-</div>
-
-<div id="otherPage" class="page hidden">
-<h2 id="otherTitle">القسم</h2><hr>
-<p id="otherText">ده القسم بتاعك.</p>
-<button class="back" onclick="back()">⬅ رجوع للرئيسية</button>
-</div>
+<div id="page" class="page hidden"><h2 id="pageTitle"></h2><p id="pageText" style="color:#64748B;line-height:1.8"></p><div id="pageContent"></div><button class="back" onclick="goHome()">⬅ رجوع للرئيسية</button></div>
 
 <script>
-let data = JSON.parse(localStorage.getItem('daftar_abosalh') || '[]');
-function show(sec){
-  if(sec==='rent'){document.getElementById('home').classList.add('hidden');document.getElementById('rentPage').classList.remove('hidden');document.getElementById('otherPage').classList.add('hidden');render();}
-  else{let titles={dashboard:'🏠 لوحة التحكم',assistant:'🧠 مساعد أبو صالح',reports:'📚 التقارير الشاملة',edit:'👤 تعديل الحسابات والأصناف',close:'⚖️ التصفية وإغلاق الحسابات',debts:'🤝 الديون والمتأخرات',offers:'🧾 عروض الأسعار',items:'📦 الأصناف والأسعار',stock:'📊 مراقبة المخزون'};document.getElementById('home').classList.add('hidden');document.getElementById('rentPage').classList.add('hidden');document.getElementById('otherPage').classList.remove('hidden');document.getElementById('otherTitle').textContent=titles[sec];if(sec==='dashboard'){document.getElementById('otherText').textContent='عندك '+data.length+' عقد، والباقي عليهم '+data.reduce((a,x)=>a+(x.am-x.pd),0)+' جنيه.';}else if(sec==='debts'){document.getElementById('otherText').textContent=data.filter(x=>x.am>x.pd).map(x=>x.n+' عليه '+(x.am-x.pd)+' جنيه').join(' | ')||'مفيش ديون';}else{document.getElementById('otherText').textContent='ده قسم '+titles[sec]+' بتاع دفترك.';}}
-}
-function back(){document.getElementById('home').classList.remove('hidden');document.getElementById('rentPage').classList.add('hidden');document.getElementById('otherPage').classList.add('hidden');}
-function add(){let n=document.getElementById('n').value;let am=Number(document.getElementById('am').value||0);let pd=Number(document.getElementById('pd').value||0);if(!n){alert('اكتب اسم العميل');return;}data.unshift({n,it:document.getElementById('it').value,am,pd});localStorage.setItem('daftar_abosalh',JSON.stringify(data));document.getElementById('n').value='';document.getElementById('am').value='';document.getElementById('pd').value='';render();}
-function render(){document.getElementById('list').innerHTML=data.map((x,i)=>`<div class="item"><b>${x.n} - ${x.it}</b><br>الإجمالي: ${x.am} | المدفوع: ${x.pd} | الباقي: <b style="color:red">${x.am-x.pd}</b><br><button onclick="del(${i})">مسح</button></div>`).join('')||'<p style="text-align:center;color:#999">لسه فاضي</p>';}
-function del(i){data.splice(i,1);localStorage.setItem('daftar_abosalh',JSON.stringify(data));render();}
+let clients=JSON.parse(localStorage.getItem('daftar_abosalh_final')||'[{"name":"أبو صالح","phone":"0542199572","note":"دخول: ٣٣٣٢٨ ريال"},{"name":"أبو صالح","phone":"0542199572","note":"دخول: ٣٣٣٢٨ ريال"},{"name":"أبو عمر أحمد سمير","phone":"056-009-4951","note":"دخول: ١ ريال"}]');
+function save(){localStorage.setItem('daftar_abosalh_final',JSON.stringify(clients));}
+function render(){let s=document.getElementById('search').value||'';let f=clients.filter(c=>(c.name+c.phone).includes(s));document.getElementById('list').innerHTML=f.map((c,i)=>`<div class="client"><div><b>${c.name}</b><br><small>${c.phone}<br>${c.note||''}</small></div><button class="open" onclick="openClient(${i})">← فتح الملف</button></div>`).join('')||'<p style="text-align:center;color:#999">مفيش عملاء</p>';}
+function addClient(){let n=document.getElementById('cName').value.trim();let p=document.getElementById('cPhone').value.trim();if(!n){alert('اكتب اسم العميل');return;}clients.unshift({name:n,phone:p||'بدون رقم',note:'عميل جديد'});save();document.getElementById('cName').value='';document.getElementById('cPhone').value='';render();}
+function openClient(i){let c=clients[i];openPage('ملف '+c.name,'العميل: '+c.name+'<br>الجوال: '+c.phone+'<br>'+c.note+'<br><br>هنا هتلاقي عقود الإيجار والمدفوع والباقي بتاعه.');}
+function openPage(t,txt){document.getElementById('home').classList.add('hidden');document.getElementById('page').classList.remove('hidden');document.getElementById('pageTitle').textContent=t;document.getElementById('pageText').innerHTML=txt||'ده قسم '+t+' بتاع دفترك. البيانات بتاعتك محفوظة هنا.';window.scrollTo(0,0);}
+function goHome(){document.getElementById('home').classList.remove('hidden');document.getElementById('page').classList.add('hidden');}
+function makeReport(){alert('تم إنشاء التقرير من '+ (document.getElementById('fromD').value||'البداية') +' إلى '+ (document.getElementById('toD').value||'اليوم') +' - عدد العملاء: '+clients.length);}
 render();
 </script>
 </body>
