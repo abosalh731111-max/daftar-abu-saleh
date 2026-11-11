@@ -2,176 +2,165 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>دفتر أبو صالح</title>
 <style>
-*{box-sizing:border-box;font-family:system-ui,Tahoma,Arial}
-body{margin:0;background:#f1f4f8;color:#12294A}
-.header{background:#12294A;color:#fff;padding:22px 16px;text-align:center}
-.header h1{margin:0;font-size:28px}
-.header p{margin:8px 0 0;opacity:.85;font-size:14px;line-height:1.7}
-.nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px;position:sticky;top:0;background:#f1f4f8;z-index:10}
-.nav button{flex:1 1 30%;border:0;padding:12px 6px;border-radius:12px;background:#fff;font-weight:700;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.nav button.active{background:#12294A;color:#fff}
-.wrap{padding:0 12px 30px;max-width:900px;margin:auto}
-.card{background:#fff;border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-h2{margin:0 0 10px;font-size:20px}
-h3{margin:14px 0 8px}
-.small{color:#667085;font-size:13px;line-height:1.7}
+*{box-sizing:border-box}body{font-family:system-ui;background:#F2F4F7;margin:0;padding:0;color:#222}
+.header{background:#1A2E4B;color:#fff;padding:22px 16px 20px;text-align:center}
+.header h1{margin:0;font-size:32px}.header p{margin:8px 0 0;color:#CBD5E1;font-size:15px;line-height:1.6}
+.card{background:#fff;margin:14px;border-radius:16px;padding:16px;box-shadow:0 2px 10px #0001}
+.card h2{font-size:19px;margin:0 0 14px;display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding-bottom:10px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:#eef2f7;border-radius:12px;padding:14px;text-align:center}
-.stat b{display:block;font-size:22px;margin-top:4px}
-input,select{width:100%;padding:11px;border:1px solid #d0d5dd;border-radius:10px;margin:5px 0;font-size:15px}
-.btn{background:#12294A;color:#fff;border:0;padding:12px;border-radius:10px;width:100%;font-weight:700;cursor:pointer;margin-top:6px}
-.btn2{background:#e7ecf2;color:#12294A}
-.btnDanger{background:#c0392b;color:#fff}
-.item{border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.item b{font-size:16px}
-.item span{color:#667085;font-size:13px;display:block;margin-top:3px}
-.del{border:0;background:#fee4e2;color:#b42318;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
-.hide{display:none}
+.grid1{display:grid;grid-template-columns:1fr;gap:10px}
+.btn{background:#0E7A4B;color:#fff;border:0;padding:16px 10px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer}
+.btn.white{background:#fff;color:#222;border:1px solid #ddd}
+.btn.dark{background:#1A2E4B}
+input,select,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-size:16px;margin-top:6px}
+label{font-weight:700;font-size:15px;display:block;margin-top:12px}
+.big{width:100%;padding:15px;border:0;border-radius:12px;background:#0E7A4B;color:#fff;font-size:18px;font-weight:700;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{padding:10px;border-bottom:1px solid #eee;text-align:center;font-size:14px}
+.del{background:#D32F2F;color:#fff;border:0;padding:7px 10px;border-radius:8px}
+.alert{background:#FFF7D6;border:1px solid #FFE082;padding:12px;border-radius:12px;margin-top:10px;line-height:1.7}
+.dash{background:linear-gradient(135deg,#0F3A3A,#0E7A4B);color:#fff;border-radius:16px;padding:18px;margin:14px}
+.hidden{display:none}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>دفتر أبو صالح</h1>
-<p>تأجير الخشب والسقالات والشدة المعدنية - نظام إدارة الإيجارات<br>والمخزون والبيع والشراء والحسابات والتقارير</p>
+<p>تأجير الخشب والسقالات والشدة المعدنية — نظام إدارة الإيجارات والمخزون والبيع والشراء والحسابات والتقارير</p>
 </div>
-
-<div class="nav">
-<button onclick="show('home',this)" class="active">الرئيسية</button>
-<button onclick="show('customers',this)">العملاء</button>
-<button onclick="show('items',this)">البضاعة</button>
-<button onclick="show('moves',this)">الحركات</button>
-<button onclick="show('edit',this)">تعديل الحسابات والأصناف</button>
-<button onclick="show('admin',this)">الإدارة</button>
-<button onclick="show('settings',this)">الإعدادات والنسخ الاحتياطي</button>
-</div>
-
-<div class="wrap">
-
-<!-- الرئيسية -->
-<div id="home" class="page">
-<div class="card"><h2>أهلاً بيك يا أبو صالح 👋</h2><p class="small">ده دفترك الأصلي، كل بياناتك محفوظة هنا في موبايلك، وبتشتغل من غير نت.</p>
-<div class="grid" id="homeStats"></div></div>
-<div class="card"><h2>آخر الحركات</h2><div id="lastMoves"></div></div>
-</div>
-
-<!-- العملاء -->
-<div id="customers" class="page hide">
-<div class="card"><h2>العملاء</h2><div id="customersList"></div></div>
-<div class="card"><h3>إضافة عميل جديد</h3>
-<input id="cName" placeholder="اسم العميل - مثال: صلاح ابوشريف">
-<input id="cPhone" placeholder="رقم الجوال - مثال: 0508384129">
-<input id="cAddr" placeholder="العنوان - مثال: الرياض">
-<button class="btn" onclick="addCustomer()">إضافة العميل</button></div>
-</div>
-
-<!-- البضاعة -->
-<div id="items" class="page hide">
-<div class="card"><h2>البضاعة والمخزون</h2><div id="itemsList"></div></div>
-<div class="card"><h3>إضافة صنف جديد</h3>
-<input id="iName" placeholder="اسم الصنف">
-<input id="iPrice" type="number" placeholder="السعر بالريال">
-<input id="iStock" type="number" placeholder="المخزون">
-<button class="btn" onclick="addItem()">إضافة الصنف</button></div>
-</div>
-
-<!-- الحركات -->
-<div id="moves" class="page hide">
-<div class="card"><h2>الحركات</h2><div id="movesList"></div></div>
-<div class="card"><h3>إضافة حركة جديدة</h3>
-<select id="mCustomer"></select>
-<select id="mItem"></select>
-<input id="mQty" type="number" placeholder="الكمية - مثال: 300">
-<input id="mPlace" placeholder="المكان - مثال: الرياض">
-<button class="btn" onclick="addMove()">إضافة الحركة</button>
-<p class="small">السعر بيتحسب تلقائي من سعر الصنف × الكمية.</p></div>
-</div>
-
-<!-- تعديل -->
-<div id="edit" class="page hide">
-<div class="card"><h2>تعديل الحسابات والأصناف</h2>
-<p class="small">هنا تقدر تعدل أي عميل أو صنف أو حركة، أو تمسحها. دوس على تعديل، عدّل، ودوس حفظ.</p>
-<h3>تعديل العملاء</h3><div id="editCustomers"></div>
-<h3>تعديل الأصناف</h3><div id="editItems"></div>
+<div id="home">
+<div class="card">
+<h2><span>🏠 الإدارة والمتابعة</span></h2>
+<div class="grid">
+<button class="btn white" onclick="show('dashboard')">🏠 لوحة التحكم</button>
+<button class="btn" onclick="show('assistant')">🧠 مساعد أبو صالح</button>
+<button class="btn white" onclick="show('reports')">📚 التقارير الشاملة</button>
+<button class="btn" onclick="show('backup')">⚙️ الإعدادات والنسخ الاحتياطي</button>
 </div>
 </div>
-
-<!-- الإدارة -->
-<div id="admin" class="page hide">
-<div class="card"><h2>الإدارة</h2><p class="small">لوحة تحكم كاملة لدفترك.</p>
-<div class="grid" id="adminStats"></div></div>
-<div class="card"><h3>إدارة سريعة</h3>
-<button class="btn" onclick="exportBackup()">تصدير نسخة أمان</button>
-<button class="btn btn2" onclick="document.getElementById('fileInput').click()">استيراد نسخة أمان</button>
-<button class="btn btn2" onclick="resetDefault()">ارجاع البيانات الأصلية</button>
-<button class="btn btnDanger" onclick="clearAll()">مسح كل البيانات</button>
-<p class="small">⚠️ مسح كل البيانات بيمسح كل حاجة. اعمل تصدير الأول قبل ما تمسح.</p></div>
-<div class="card"><h3>تقرير سريع</h3><div id="adminReport"></div></div>
+<div class="card">
+<h2><span>🏗️ العملاء والإيجارات</span></h2>
+<div class="grid">
+<button class="btn white" onclick="show('clients')">🏗️ العملاء والإيجار</button>
+<button class="btn white" onclick="show('clients')">👤 تعديل الحسابات والأصناف</button>
+<button class="btn white" onclick="show('settle')">⚖️ التصفية وإغلاق الحسابات</button>
+<button class="btn white" onclick="show('debts')">🤝 الديون والمتأخرات</button>
 </div>
-
-<!-- الإعدادات -->
-<div id="settings" class="page hide">
-<div class="card"><h2>الإعدادات والنسخ الاحتياطي</h2>
-<p class="small">بياناتك محفوظة في جهازك. اعمل نسخة أمان كل فترة عشان لو غيرت الموبايل.</p>
-<button class="btn" onclick="exportBackup()">تصدير نسخة أمان - تحميل ملف JSON</button>
-<button class="btn btn2" onclick="document.getElementById('fileInput').click()">استيراد نسخة أمان</button>
-<input type="file" id="fileInput" class="hide" accept=".json" onchange="importBackup(event)">
-<p class="small" id="backupInfo"></p>
+<div class="grid1" style="margin-top:10px"><button class="btn white" onclick="show('prices')">🧾 عروض الأسعار</button></div>
+</div>
+<div class="card">
+<h2><span>📦 المخزون والتجارة</span></h2>
+<div class="grid">
+<button class="btn white" onclick="show('items')">📦 الأصناف والأسعار</button>
+<button class="btn white" onclick="show('stock')">📊 مراقبة المخزون والجرد</button>
+<button class="btn white" onclick="show('sales')">💵 المبيعات</button>
+<button class="btn white" onclick="show('buy')">🛒 المشتريات</button>
 </div>
 </div>
-
+<div class="card">
+<h2><span>🚚 التشغيل والمصروفات</span></h2>
+<div class="grid">
+<button class="btn white" onclick="show('safe')">🏦 الخزنة والحركة النقدية</button>
+<button class="btn white" onclick="show('exp')">💸 المصروفات</button>
+<button class="btn white" onclick="show('cars')">🚗 السيارات ومصاريفها</button>
+<button class="btn white" onclick="show('workers')">👷 العمال والمهام</button>
 </div>
-
+<div class="grid1" style="margin-top:10px"><button class="btn white" onclick="show('notes')">📝 المفكرة ومواعيد الشغل</button></div>
+</div>
+<div class="card">
+<h2><span>⚙️ الحفظ والإدارة</span></h2>
+<div class="grid">
+<button class="btn white" onclick="show('trash')">🗑️ سلة المهملات</button>
+<button class="btn white" onclick="show('backup')">⚙️ الإعدادات والنسخ الاحتياطي</button>
+</div>
+<div class="grid1" style="margin-top:10px">
+<button class="btn" onclick="saveBackup()">💾 حفظ نسخة من الدفتر - عشان مايضيعش</button>
+<button class="btn white" onclick="document.getElementById('fileInput').click()">📂 استرجاع النسخة المحفوظة</button>
+<input type="file" id="fileInput" style="display:none" accept=".json" onchange="loadBackup(event)">
+</div>
+</div>
+<div class="dash">
+<h2 style="margin:0;font-size:24px">🏠 لوحة التحكم الرئيسية</h2>
+<p style="line-height:1.8;color:#D1EAD9">نظرة سريعة على شغلك اليوم — الأرقام تتحدث تلقائيا مع تسجيل أي حركة جديدة.</p>
+<div style="display:flex;gap:10px;margin-top:12px">
+<div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:12px;text-align:center"><b id="h1">0 ج</b><br>ليك عند الناس</div>
+<div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:12px;text-align:center"><b id="h2">0 ج</b><br>الخزنة</div>
+<div style="flex:1;background:#fff;color:#222;border-radius:12px;padding:12px;text-align:center"><b id="h3">0</b><br>عملاء</div>
+</div>
+</div>
+<div class="card">
+<h2><span>⚡ وصول سريع للأقسام</span></h2>
+<div class="grid">
+<button class="btn" onclick="show('clients')">🏗️ العملاء والإيجار</button>
+<button class="btn" onclick="show('items')">📦 الأصناف والمخزون</button>
+<button class="btn" onclick="show('buy')">🛒 تسجيل شراء</button>
+<button class="btn" onclick="show('sales')">💵 تسجيل بيع</button>
+<button class="btn" onclick="show('exp')">💸 المصروفات</button>
+<button class="btn" onclick="show('settle')">⚖️ التصفية</button>
+<button class="btn" onclick="show('reports')">📚 التقارير</button>
+<button class="btn" onclick="show('workers')">👷 العمال والمهام</button>
+<button class="btn" onclick="show('assistant')">🧠 مساعد أبو صالح</button>
+<button class="btn" onclick="show('backup')">⚙️ الإعدادات والنسخ الاحتياطي</button>
+<button class="btn" onclick="show('safe')">🏦 خزنة أبو صالح</button>
+</div>
+</div>
+<div class="card">
+<h2><span>🔔 تنبيهات تحتاج مراجعة</span></h2>
+<div class="alert">💰 <span id="alert1">مفيش ديون متأخرة دلوقتي.</span></div>
+<div class="alert">⚖️ <span id="alert2">مفيش تسوية معلقة.</span></div>
+</div>
+</div>
+<div id="page" class="hidden">
+<div style="padding:14px"><button class="btn dark" onclick="show('home2')">⬅ رجوع للرئيسية</button></div>
+<div class="card">
+<h2><span id="pTitle">تسجيل</span></h2>
+<label>النوع</label><select id="pType"><option>ليك عند الناس</option><option>عليك للناس</option><option>مصاريف</option><option>بيع</option><option>شراء</option><option>خزنة</option><option>ملاحظة</option></select>
+<label>الاسم / العميل / الصنف</label><input id="pName" placeholder="مثال: محمد - خشب - سقالة">
+<label>المبلغ</label><input id="pAmt" type="number" placeholder="0">
+<label>التاريخ</label><input id="pDate" type="date">
+<label>ملاحظات</label><textarea id="pNote" rows="3" placeholder="اكتب أي تفاصيل..."></textarea>
+<button class="big" onclick="addItem()">➕ اضافة للدفتر</button>
+<label>🔍 ابحث في الدفتر</label><input id="pSearch" oninput="render()" placeholder="اكتب اسم أو كلمة...">
+<div id="pList"></div>
+<div style="display:flex;gap:8px;margin-top:12px"><button class="btn white" style="flex:1" onclick="window.print()">🖨️ طباعة</button><button class="btn" style="flex:1;background:#D32F2F" onclick="clearAll()">🗑️ مسح الكل</button></div>
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn" style="flex:1" onclick="saveBackup()">💾 حفظ نسخة</button><button class="btn white" style="flex:1" onclick="document.getElementById('fileInput').click()">📂 استرجاع</button></div>
+</div>
+</div>
 <script>
-let defaultData={
-customers:[
-{name:"صلاح ابوشريف وخد شده",phone:"050 838 4129",addr:"الرياض"},
-{name:"عمر سيد الب",phone:"053-689-1076",addr:"طريق الريان"}
-],
-items:[
-{name:"مربوع 3م",price:4,stock:5000},
-{name:"بليود",price:13,stock:2000},
-{name:"چك عادي",price:2.5,stock:10000},
-{name:"جك 5م",price:5,stock:3000},
-{name:"قمطه",price:1,stock:5000},
-{name:"زوي عمدان",price:3,stock:500},
-{name:"ركبه",price:1.3,stock:3000},
-{name:"ركبه 1.5",price:2,stock:3000}
-],
-moves:[
-{customer:"صلاح ابوشريف وخد شده",item:"جك 5م",qty:300,place:"الرياض",total:1500},
-{customer:"عمر سيد الب",item:"مربوع 3م",qty:75,place:"طريق الريان",total:300}
-]
-};
-let data=JSON.parse(localStorage.getItem('daftar_abu_saleh')||'null')||JSON.parse(JSON.stringify(defaultData));
-function save(){localStorage.setItem('daftar_abu_saleh',JSON.stringify(data));render();}
-function show(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.add('hide'));document.getElementById(id).classList.remove('hide');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo(0,0);render();}
-function render(){
-let totalStockValue=data.items.reduce((s,i)=>s+i.price*i.stock,0);
-let totalMoves=data.moves.reduce((s,m)=>s+m.total,0);
-document.getElementById('homeStats').innerHTML=`<div class="stat">العملاء<b>${data.customers.length}</b></div><div class="stat">الأصناف<b>${data.items.length}</b></div><div class="stat">قيمة المخزون<b>${totalStockValue} ريال</b></div><div class="stat">إجمالي الحركات<b>${totalMoves} ريال</b></div>`;
-document.getElementById('adminStats').innerHTML=document.getElementById('homeStats').innerHTML;
-document.getElementById('customersList').innerHTML=data.customers.map((c,i)=>`<div class="item"><div><b>${c.name}</b><span>${c.phone} - ${c.addr}</span></div><button class="del" onclick="delCustomer(${i})">حذف</button></div>`).join('')||'مفيش عملاء';
-document.getElementById('itemsList').innerHTML=data.items.map((it,i)=>`<div class="item"><div><b>${it.name}</b><span>السعر: ${it.price} ريال - المخزون: ${it.stock}</span></div><button class="del" onclick="delItem(${i})">حذف</button></div>`).join('');
-document.getElementById('movesList').innerHTML=data.moves.map((m,i)=>`<div class="item"><div><b>${m.qty} قطعة ${m.item}</b><span>${m.customer} - ${m.place} - ${m.total} ريال</span></div><button class="del" onclick="delMove(${i})">حذف</button></div>`).join('')||'مفيش حركات';
-document.getElementById('lastMoves').innerHTML=document.getElementById('movesList').innerHTML;
-document.getElementById('mCustomer').innerHTML=data.customers.map(c=>`<option>${c.name}</option>`).join('');
-document.getElementById('mItem').innerHTML=data.items.map(it=>`<option>${it.name}</option>`).join('');
-document.getElementById('editCustomers').innerHTML=data.customers.map((c,i)=>`<input id="ecN${i}" value="${c.name}"><input id="ecP${i}" value="${c.phone}"><button class="btn btn2" onclick="saveCustomer(${i})">حفظ تعديل العميل</button>`).join('');
-document.getElementById('editItems').innerHTML=data.items.map((it,i)=>`<input id="eiN${i}" value="${it.name}"><input type="number" id="eiP${i}" value="${it.price}"><input type="number" id="eiS${i}" value="${it.stock}"><button class="btn btn2" onclick="saveItem(${i})">حفظ تعديل الصنف</button>`).join('');
-document.getElementById('adminReport').innerHTML=`عدد العملاء: ${data.customers.length}<br>عدد الأصناف: ${data.items.length}<br>عدد الحركات: ${data.moves.length}<br>إجمالي قيمة المخزون: ${totalStockValue} ريال<br>إجمالي الحركات: ${totalMoves} ريال`;
-document.getElementById('backupInfo').innerText='آخر حفظ: '+new Date().toLocaleString('ar-EG');
+let data=JSON.parse(localStorage.getItem('abusalah_v2')||'[]');
+document.getElementById('pDate').value=new Date().toISOString().slice(0,10);
+function show(x){
+if(x=='home2'||x=='dashboard'){document.getElementById('home').classList.remove('hidden');document.getElementById('page').classList.add('hidden');window.scrollTo(0,0);return;}
+let titles={clients:'🏗️ العملاء والإيجارات',items:'📦 الأصناف والأسعار',stock:'📊 مراقبة المخزون والجرد',sales:'💵 المبيعات',buy:'🛒 المشتريات',safe:'🏦 الخزنة والحركة النقدية',exp:'💸 المصروفات',cars:'🚗 السيارات ومصاريفها',workers:'👷 العمال والمهام',notes:'📝 المفكرة ومواعيد الشغل',trash:'🗑️ سلة المهملات',backup:'⚙️ الإعدادات والنسخ الاحتياطي',assistant:'🧠 مساعد أبو صالح',reports:'📚 التقارير الشاملة',settle:'⚖️ التصفية وإغلاق الحسابات',debts:'🤝 الديون والمتأخرات',prices:'🧾 عروض الأسعار'};
+document.getElementById('pTitle').textContent=titles[x]||'تسجيل';
+document.getElementById('home').classList.add('hidden');document.getElementById('page').classList.remove('hidden');window.scrollTo(0,0);render();
 }
-function addCustomer(){let n=document.getElementById('cName').value.trim();if(!n)return alert('اكتب اسم العميل');data.customers.push({name:n,phone:document.getElementById('cPhone').value,addr:document.getElementById('cAddr').value});save();alert('تم إضافة العميل');}
-function addItem(){let n=document.getElementById('iName').value.trim();if(!n)return alert('اكتب اسم الصنف');data.items.push({name:n,price:parseFloat(document.getElementById('iPrice').value||0),stock:parseFloat(document.getElementById('iStock').value||0)});save();alert('تم إضافة الصنف');}
-function addMove(){let c=document.getElementById('mCustomer').value;let itName=document.getElementById('mItem').value;let q=parseFloat(document.getElementById('mQty').value||0);let it=data.items.find(x=>x.name===itName);let total=q*(it?it.price:0);data.moves.push({customer:c,item:itName,qty:q,place:document.getElementById('mPlace').value,total:total});if(it)it.stock-=q;save();alert('تم إضافة الحركة: '+total+' ريال');}
-function delCustomer(i){if(confirm('متأكد تحذف العميل؟')){data.customers.splice(i,1);save();}}
-function delItem(i){if(confirm('متأكد تحذف الصنف؟')){data.items.splice(i,1);save();}}
-function delMove(i){if(confirm('متأكد تحذف الحركة؟')){data.moves.splice(i,1);save();}}
-function saveCustomer(i){data.customers[i]={name:document.getElementById('ecN'+i).value,phone:document.getElementById('ecP'+i).value,addr:data.customers[i].addr};save();alert('تم الحفظ');}
-function saveItem(i){data.items[i]={name:document.getElementById('eiN'+i).value,price:parseFloat(document.getElementById('eiP'+i).value),stock:parseFloat(document.getElementById('eiS'+i).value)};save();alert('تم الحفظ');}
-function exportBackup(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='نسخة_أمان_دفتر_أبو_صالح.json';a.click();}
-function importBackup(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();alert('تم استيراد النسخة بنجاح');}catch(err){alert('الملف مش صحيح');}};r.readAsText(f);}
-function clearAll(){if(
+function addItem(){let t=pType.value,n=pName.value||'بدون اسم',a=Number(pAmt.value||0),d=pDate.value,nt=pNote.value;data.unshift({t,n,a,d,nt});localStorage.setItem('abusalah_v2',JSON.stringify(data));pName.value='';pAmt.value='';pNote.value='';render();}
+function del(i){if(confirm('تمسح دي؟')){data.splice(i,1);localStorage.setItem('abusalah_v2',JSON.stringify(data));render();}}
+function clearAll(){if(confirm('تمسح الدفتر كله؟')){data=[];localStorage.removeItem('abusalah_v2');render();}}
+function saveBackup(){
+let blob=new Blob([JSON.stringify(data)],{type:'application/json'});
+let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='daftar-abu-salah.json';a.click();
+alert('اتحفظت النسخة عندك في الملفات - الدفتر كده موثق ومش هيضيع');
+}
+function loadBackup(e){
+let f=e.target.files[0];if(!f)return;
+let r=new FileReader();r.onload=function(){try{data=JSON.parse(r.result);localStorage.setItem('abusalah_v2',JSON.stringify(data));render();alert('رجعنا الدفتر المحفوظ - تمام');}catch(err){alert('الملف ده مش مظبوط');}};r.readAsText(f);
+}
+function render(){
+let s=(document.getElementById('pSearch')?.value||'');
+let f=data.filter(x=>(x.n+x.nt+x.t).includes(s));
+let s1=0,s2=0;data.forEach(x=>{if(x.t=='ليك عند الناس'||x.t=='بيع')s1+=x.a;if(x.t=='خزنة')s2+=x.a;});
+document.getElementById('h1').textContent=s1+' ج';document.getElementById('h2').textContent=s2+' ج';document.getElementById('h3').textContent=data.length;
+if(s1>0)document.getElementById('alert1').textContent='يوجد عميل عليهم مبالغ بإجمالي '+s1+' ريال. راجع حسابات العملاء.';
+let h='<table><tr><th>النوع</th><th>الاسم</th><th>المبلغ</th><th>التاريخ</th><th>ملاحظة</th><th></th></tr>';
+f.forEach(x=>{let idx=data.indexOf(x);h+=`<tr><td>${x.t}</td><td>${x.n}</td><td>${x.a}</td><td>${x.d}</td><td>${x.nt}</td><td><button class=del onclick="del(${idx})">مسح</button></td></tr>`});
+h+='</table>';if(!f.length)h='<p style="text-align:center;padding:14px">الدفتر فاضي - اكتب أول حاجة فوق</p>';
+let el=document.getElementById('pList');if(el)el.innerHTML=h;
+}
+render();
+</script>
+</body>
+</html>
