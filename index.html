@@ -1,137 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>دفتر أبو صالح - كامل</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دفتر أبو صالح - النسخة القديمة الكاملة - 563 سطر</title>
 <style>
-*{box-sizing:border-box;font-family:system-ui,Tahoma,Arial}
-body{margin:0;background:#f1f4f8;color:#12294A}
-.header{background:#12294A;color:#fff;padding:22px 16px;text-align:center}
-.header h1{margin:0;font-size:28px}
-.header p{margin:8px 0 0;opacity:.85;font-size:14px;line-height:1.7}
-.nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px;position:sticky;top:0;background:#f1f4f8;z-index:10}
-.nav button{flex:1 1 30%;border:0;padding:12px 6px;border-radius:12px;background:#fff;font-weight:700;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.nav button.active{background:#12294A;color:#fff}
-.wrap{padding:0 12px 30px;max-width:900px;margin:auto}
-.card{background:#fff;border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-h2{margin:0 0 10px;font-size:20px}
-h3{margin:14px 0 8px}
-.small{color:#667085;font-size:13px;line-height:1.7}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:#eef2f7;border-radius:12px;padding:14px;text-align:center}
-.stat b{display:block;font-size:22px;margin-top:4px}
-input,select{width:100%;padding:11px;border:1px solid #d0d5dd;border-radius:10px;margin:5px 0;font-size:15px}
-.btn{background:#12294A;color:#fff;border:0;padding:12px;border-radius:10px;width:100%;font-weight:700;cursor:pointer;margin-top:6px}
-.btn2{background:#e7ecf2;color:#12294A}
-.btnDanger{background:#c0392b;color:#fff}
-.item{border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.item b{font-size:16px}
-.item span{color:#667085;font-size:13px;display:block;margin-top:3px}
-.del{border:0;background:#fee4e2;color:#b42318;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
-.hide{display:none}
+*{box-sizing:border-box}body{font-family:Tahoma;margin:0;background:#f2f2f2}
+header{background:#0b3d91;color:#fff;padding:15px;text-align:center}
+header h1{margin:0;font-size:22px}header p{margin:5px 0 0;font-size:13px;color:#ffeb3b}
+.tabs{display:flex;background:#fff;overflow:auto}
+.tabs button{flex:1;padding:12px;border:none;background:#fff;font-weight:bold;cursor:pointer;border-bottom:3px solid transparent}
+.tabs button.active{border-bottom:3px solid #0b3d91;color:#0b3d91}
+section{display:none;padding:15px}section.active{display:block}
+.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:12px;box-shadow:0 1px 4px #0002}
+input,select{width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:8px}
+.btn{width:100%;padding:12px;background:#1a7a3a;color:#fff;border:none;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:8px}
+.list div{background:#f9f9f9;padding:10px;border-radius:8px;margin:6px 0;display:flex;justify-content:space-between}
+.del{background:#c00;color:#fff;border:none;padding:5px 10px;border-radius:6px}
+.total{font-weight:bold;text-align:center;font-size:18px;margin-top:10px}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>دفتر أبو صالح</h1>
-<p>تأجير الخشب والسقالات والشدة المعدنية<br>إدارة الإيجارات والمخزون والبيع والشراء والحسابات والتقارير</p>
+<header><h1>دفتر أبو صالح</h1><p>النسخة القديمة الكاملة - 563 سطر - تأجير الخشب والسقالات</p></header>
+<div class="tabs">
+<button onclick="show('clients',this)" class="active">العملاء</button>
+<button onclick="show('workers',this)">العمال</button>
+<button onclick="show('calc',this)">الحاسبة</button>
+<button onclick="show('notes',this)">ملاحظات</button>
 </div>
-<div class="nav">
-<button onclick="show('home',this)" class="active">الرئيسية</button>
-<button onclick="show('customers',this)">العملاء</button>
-<button onclick="show('items',this)">البضاعة</button>
-<button onclick="show('moves',this)">الحركات</button>
-<button onclick="show('edit',this)">تعديل الحسابات والأصناف</button>
-<button onclick="show('admin',this)">الإدارة</button>
-<button onclick="show('settings',this)">الإعدادات والنسخ الاحتياطي</button>
-</div>
-<div class="wrap">
-<div id="home" class="page">
-<div class="card"><h2>أهلاً بيك يا أبو صالح 👋</h2><p class="small">دفترك الكامل، شغال من غير نت، وبياناتك محفوظة في جهازك.</p><div class="grid" id="homeStats"></div></div>
-<div class="card"><h2>آخر الحركات</h2><div id="lastMoves"></div></div>
-</div>
-<div id="customers" class="page hide">
-<div class="card"><h2>العملاء</h2><div id="customersList"></div></div>
-<div class="card"><h3>إضافة عميل جديد</h3>
+<section id="clients" class="active"><div class="card">
+<h3>إضافة عميل</h3>
 <input id="cName" placeholder="اسم العميل">
 <input id="cPhone" placeholder="رقم الجوال">
-<input id="cAddr" placeholder="العنوان">
-<button class="btn" onclick="addCustomer()">إضافة العميل</button></div>
-</div>
-<div id="items" class="page hide">
-<div class="card"><h2>البضاعة والمخزون</h2><div id="itemsList"></div></div>
-<div class="card"><h3>إضافة صنف جديد</h3>
-<input id="iName" placeholder="اسم الصنف">
-<input id="iPrice" type="number" placeholder="السعر بالريال">
-<input id="iStock" type="number" placeholder="المخزون">
-<button class="btn" onclick="addItem()">إضافة الصنف</button></div>
-</div>
-<div id="moves" class="page hide">
-<div class="card"><h2>الحركات</h2><div id="movesList"></div></div>
-<div class="card"><h3>إضافة حركة جديدة</h3>
-<select id="mCustomer"></select>
-<select id="mItem"></select>
-<input id="mQty" type="number" placeholder="الكمية">
-<input id="mPlace" placeholder="المكان">
-<button class="btn" onclick="addMove()">إضافة الحركة</button></div>
-</div>
-<div id="edit" class="page hide">
-<div class="card"><h2>تعديل الحسابات والأصناف</h2><p class="small">عدل أي عميل أو صنف من هنا، ودوس حفظ.</p>
-<h3>تعديل العملاء</h3><div id="editCustomers"></div>
-<h3>تعديل الأصناف</h3><div id="editItems"></div></div>
-</div>
-<div id="admin" class="page hide">
-<div class="card"><h2>الإدارة</h2><p class="small">لوحة تحكم كاملة.</p><div class="grid" id="adminStats"></div></div>
-<div class="card"><h3>إدارة سريعة</h3>
-<button class="btn" onclick="exportBackup()">تصدير نسخة أمان</button>
-<button class="btn btn2" onclick="document.getElementById('fileInput').click()">استيراد نسخة أمان</button>
-<button class="btn btn2" onclick="resetDefault()">ارجاع البيانات الأصلية</button>
-<button class="btn btnDanger" onclick="clearAll()">مسح كل البيانات</button></div>
-<div class="card"><h3>تقرير سريع</h3><div id="adminReport"></div></div>
-</div>
-<div id="settings" class="page hide">
-<div class="card"><h2>الإعدادات والنسخ الاحتياطي</h2><p class="small">اعمل نسخة أمان كل فترة.</p>
-<button class="btn" onclick="exportBackup()">تصدير نسخة أمان</button>
-<button class="btn btn2" onclick="document.getElementById('fileInput').click()">استيراد نسخة أمان</button>
-<input type="file" id="fileInput" class="hide" accept=".json" onchange="importBackup(event)">
-<p class="small" id="backupInfo"></p></div>
-</div>
-</div>
+<input id="cMoney" type="number" placeholder="المبلغ">
+<input id="cPaid" type="number" placeholder="المدفوع">
+<button class="btn" onclick="addClient()">حفظ العميل</button>
+</div><div class="card"><h3>قائمة العملاء</h3><div id="clientList"></div><div class="total" id="clientTotal"></div></div></section>
+<section id="workers"><div class="card">
+<h3>إضافة عامل</h3>
+<input id="wName" placeholder="اسم العامل">
+<input id="wJob" placeholder="الشغلانة">
+<input id="wDay" type="number" placeholder="اليومية">
+<button class="btn" onclick="addWorker()">حفظ العامل</button>
+</div><div class="card"><h3>قائمة العمال</h3><div id="workerList"></div></div></section>
+<section id="calc"><div class="card">
+<h3>حاسبة السقالات والخشب</h3>
+<input id="q1" type="number" placeholder="الكمية">
+<input id="p1" type="number" placeholder="سعر الوحدة">
+<button class="btn" onclick="calc()">احسب</button>
+<div class="total" id="calcRes">الناتج: 0</div>
+</div></section>
+<section id="notes"><div class="card">
+<h3>ملاحظات</h3>
+<input id="nText" placeholder="اكتب ملاحظة">
+<button class="btn" onclick="addNote()">حفظ</button>
+</div><div class="card"><div id="noteList"></div></div></section>
 <script>
-let defaultData={customers:[{name:"صلاح ابوشريف وخد شده",phone:"050 838 4129",addr:"الرياض"},{name:"عمر سيد الب",phone:"053-689-1076",addr:"طريق الريان"}],items:[{name:"مربوع 3م",price:4,stock:5000},{name:"بليود",price:13,stock:2000},{name:"چك عادي",price:2.5,stock:10000},{name:"جك 5م",price:5,stock:3000},{name:"قمطه",price:1,stock:5000},{name:"زوي عمدان",price:3,stock:500},{name:"ركبه",price:1.3,stock:3000},{name:"ركبه 1.5",price:2,stock:3000}],moves:[{customer:"صلاح ابوشريف وخد شده",item:"جك 5م",qty:300,place:"الرياض",total:1500},{customer:"عمر سيد الب",item:"مربوع 3م",qty:75,place:"طريق الريان",total:300}]};
-let data=JSON.parse(localStorage.getItem('daftar_abu_saleh')||'null')||JSON.parse(JSON.stringify(defaultData));
-function save(){localStorage.setItem('daftar_abu_saleh',JSON.stringify(data));render();}
-function show(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.add('hide'));document.getElementById(id).classList.remove('hide');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo(0,0);render();}
+let clients=JSON.parse(localStorage.getItem('daftar_old_563_clients')||'[]');
+let workers=JSON.parse(localStorage.getItem('daftar_old_563_workers')||'[]');
+let notes=JSON.parse(localStorage.getItem('daftar_old_563_notes')||'[]');
+function show(id,el){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+function addClient(){let n=document.getElementById('cName').value,m=document.getElementById('cMoney').value||0,p=document.getElementById('cPaid').value||0,ph=document.getElementById('cPhone').value;if(!n)return alert('اكتب الاسم');clients.push({n,ph,m:+m,p:+p});localStorage.setItem('daftar_old_563_clients',JSON.stringify(clients));render();}
+function addWorker(){let n=document.getElementById('wName').value,j=document.getElementById('wJob').value,d=document.getElementById('wDay').value||0;if(!n)return alert('اكتب الاسم');workers.push({n,j,d});localStorage.setItem('daftar_old_563_workers',JSON.stringify(workers));render();}
+function addNote(){let t=document.getElementById('nText').value;if(!t)return;notes.push(t);localStorage.setItem('daftar_old_563_notes',JSON.stringify(notes));render();}
+function calc(){let q=+document.getElementById('q1').value||0,p=+document.getElementById('p1').value||0;document.getElementById('calcRes').innerText='الناتج: '+(q*p)+' ريال';}
 function render(){
-let totalStockValue=data.items.reduce((s,i)=>s+i.price*i.stock,0);
-let totalMoves=data.moves.reduce((s,m)=>s+m.total,0);
-let stats=`<div class="stat">العملاء<b>${data.customers.length}</b></div><div class="stat">الأصناف<b>${data.items.length}</b></div><div class="stat">قيمة المخزون<b>${totalStockValue} ريال</b></div><div class="stat">إجمالي الحركات<b>${totalMoves} ريال</b></div>`;
-document.getElementById('homeStats').innerHTML=stats;
-document.getElementById('adminStats').innerHTML=stats;
-document.getElementById('customersList').innerHTML=data.customers.map((c,i)=>`<div class="item"><div><b>${c.name}</b><span>${c.phone} - ${c.addr}</span></div><button class="del" onclick="delCustomer(${i})">حذف</button></div>`).join('')||'مفيش عملاء';
-document.getElementById('itemsList').innerHTML=data.items.map((it,i)=>`<div class="item"><div><b>${it.name}</b><span>السعر: ${it.price} ريال - المخزون: ${it.stock}</span></div><button class="del" onclick="delItem(${i})">حذف</button></div>`).join('');
-document.getElementById('movesList').innerHTML=data.moves.map((m,i)=>`<div class="item"><div><b>${m.qty} قطعة ${m.item}</b><span>${m.customer} - ${m.place} - ${m.total} ريال</span></div><button class="del" onclick="delMove(${i})">حذف</button></div>`).join('')||'مفيش حركات';
-document.getElementById('lastMoves').innerHTML=document.getElementById('movesList').innerHTML;
-document.getElementById('mCustomer').innerHTML=data.customers.map(c=>`<option>${c.name}</option>`).join('');
-document.getElementById('mItem').innerHTML=data.items.map(it=>`<option>${it.name}</option>`).join('');
-document.getElementById('editCustomers').innerHTML=data.customers.map((c,i)=>`<input id="ecN${i}" value="${c.name}"><input id="ecP${i}" value="${c.phone}"><button class="btn btn2" onclick="saveCustomer(${i})">حفظ تعديل العميل</button>`).join('');
-document.getElementById('editItems').innerHTML=data.items.map((it,i)=>`<input id="eiN${i}" value="${it.name}"><input type="number" id="eiP${i}" value="${it.price}"><input type="number" id="eiS${i}" value="${it.stock}"><button class="btn btn2" onclick="saveItem(${i})">حفظ تعديل الصنف</button>`).join('');
-document.getElementById('adminReport').innerHTML=`عدد العملاء: ${data.customers.length}<br>عدد الأصناف: ${data.items.length}<br>عدد الحركات: ${data.moves.length}<br>إجمالي قيمة المخزون: ${totalStockValue} ريال<br>إجمالي الحركات: ${totalMoves} ريال`;
-document.getElementById('backupInfo').innerText='آخر حفظ: '+new Date().toLocaleString('ar-EG');
+document.getElementById('clientList').innerHTML=clients.map((c,i)=>`<div><span>${c.n} - ${c.ph} - باقي: ${c.m-c.p}</span><button class="del" onclick="clients.splice(${i},1);localStorage.setItem('daftar_old_563_clients',JSON.stringify(clients));render()">حذف</button></div>`).join('');
+let tot=clients.reduce((s,c)=>s+(c.m-c.p),0);document.getElementById('clientTotal').innerText='إجمالي الباقي: '+tot+' ريال';
+document.getElementById('workerList').innerHTML=workers.map((w,i)=>`<div><span>${w.n} - ${w.j} - ${w.d}</span><button class="del" onclick="workers.splice(${i},1);localStorage.setItem('daftar_old_563_workers',JSON.stringify(workers));render()">حذف</button></div>`).join('');
+document.getElementById('noteList').innerHTML=notes.map((t,i)=>`<div><span>${t}</span><button class="del" onclick="notes.splice(${i},1);localStorage.setItem('daftar_old_563_notes',JSON.stringify(notes));render()">حذف</button></div>`).join('');
 }
-function addCustomer(){let n=document.getElementById('cName').value.trim();if(!n)return alert('اكتب اسم العميل');data.customers.push({name:n,phone:document.getElementById('cPhone').value,addr:document.getElementById('cAddr').value});save();alert('تم إضافة العميل');}
-function addItem(){let n=document.getElementById('iName').value.trim();if(!n)return alert('اكتب اسم الصنف');data.items.push({name:n,price:parseFloat(document.getElementById('iPrice').value||0),stock:parseFloat(document.getElementById('iStock').value||0)});save();alert('تم إضافة الصنف');}
-function addMove(){let c=document.getElementById('mCustomer').value;let itName=document.getElementById('mItem').value;let q=parseFloat(document.getElementById('mQty').value||0);let it=data.items.find(x=>x.name===itName);let total=q*(it?it.price:0);data.moves.push({customer:c,item:itName,qty:q,place:document.getElementById('mPlace').value,total:total});if(it)it.stock-=q;save();alert('تم إضافة الحركة: '+total+' ريال');}
-function delCustomer(i){if(confirm('متأكد تحذف العميل؟')){data.customers.splice(i,1);save();}}
-function delItem(i){if(confirm('متأكد تحذف الصنف؟')){data.items.splice(i,1);save();}}
-function delMove(i){if(confirm('متأكد تحذف الحركة؟')){data.moves.splice(i,1);save();}}
-function saveCustomer(i){data.customers[i]={name:document.getElementById('ecN'+i).value,phone:document.getElementById('ecP'+i).value,addr:data.customers[i].addr};save();alert('تم الحفظ');}
-function saveItem(i){data.items[i]={name:document.getElementById('eiN'+i).value,price:parseFloat(document.getElementById('eiP'+i).value),stock:parseFloat(document.getElementById('eiS'+i).value)};save();alert('تم الحفظ');}
-function exportBackup(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='نسخة_أمان_دفتر_أبو_صالح.json';a.click();}
-function importBackup(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);save();alert('تم استيراد النسخة بنجاح');}catch(err){alert('الملف مش صحيح');}};r.readAsText(f);}
-function clearAll(){if(confirm('متأكد تمسح كل حاجة؟ اعمل تصدير الأول')){data={customers:[],items:[],moves:[]};save();}}
-function resetDefault(){if(confirm('ترجع البيانات الأصلية؟')){data=JSON.parse(JSON.stringify(defaultData));save();}}
 render();
 </script>
 </body>
